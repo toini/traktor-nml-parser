@@ -22,7 +22,7 @@ dotnet add package TraktorNmlParser --source "https://nuget.pkg.github.com/toini
 To publish a new version to GitHub Packages:
 
 ```powershell
-$version = "0.0.1"
+$version = "0.0.4"
 $token = "your_github_pat_here"
 
 git tag "v$version"

@@ -8,7 +8,7 @@ public class TraktorParserSpec
     public async Task LoadTracksAsync_Parses_Valid_Stream()
     {
         using var stream = File.OpenRead("test-data/collection.nml");
-        var parser = new TraktorParser();
+        var parser = new NmlParser();
 
         var collection = await parser.LoadAsync(stream);
 
