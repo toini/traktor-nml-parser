@@ -13,6 +13,12 @@ public class Track
     public string? Key { get; set; }
     public int? Bitrate { get; set; }
     public int? Playtime { get; set; }
+    public double? PlaytimeFloat { get; set; }
+    public string? Label { get; set; }
+    public string? CoverArtId { get; set; }
+    public string? ImportDate { get; set; }
+    public int? Flags { get; set; }
+    public int? FileSize { get; set; }
     public List<CuePoint> CuePoints { get; set; } = new();
 
     public static Track FromXml(XElement entry)
@@ -43,6 +49,12 @@ public class Track
             Key = (string?)info?.Attribute("KEY"),
             Bitrate = (int?)info?.Attribute("BITRATE"),
             Playtime = (int?)info?.Attribute("PLAYTIME"),
+            PlaytimeFloat = (double?)info?.Attribute("PLAYTIME_FLOAT"),
+            Label = (string?)info?.Attribute("LABEL"),
+            CoverArtId = (string?)info?.Attribute("COVERARTID"),
+            ImportDate = (string?)info?.Attribute("IMPORT_DATE"),
+            Flags = (int?)info?.Attribute("FLAGS"),
+            FileSize = (int?)info?.Attribute("FILESIZE"),
             Bpm = (float?)tempo?.Attribute("BPM")
         };
     }
