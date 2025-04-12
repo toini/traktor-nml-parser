@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <PackageId>TraktorNmlParser</PackageId>
+	<Version>$(MinVerVersion)</Version>
+    <Authors>toni</Authors>
+    <RepositoryUrl>https://github.com/toini/traktor-nml-parser</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
 </Project>
