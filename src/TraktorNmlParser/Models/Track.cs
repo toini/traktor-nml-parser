@@ -8,6 +8,7 @@ public class Track
     public string? Title { get; set; }
     public string? Artist { get; set; }
     public string? Comment { get; set; }
+    public string? Rating { get; set; }
     public float? Bpm { get; set; }
     public string? Genre { get; set; }
     public string? Key { get; set; }
@@ -45,6 +46,7 @@ public class Track
             Artist = (string?)entry.Attribute("ARTIST"),
             CuePoints = cues,
             Comment = (string?)info?.Attribute("COMMENT"),
+            Rating = (string?)info?.Attribute("RATING"),
             Genre = (string?)info?.Attribute("GENRE"),
             Key = (string?)info?.Attribute("KEY"),
             Bitrate = (int?)info?.Attribute("BITRATE"),
