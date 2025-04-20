@@ -27,7 +27,7 @@ public class CuePoint
         Start = (double?)element.Attribute("START") ?? 0,
         Type = int.TryParse((string?)element.Attribute("TYPE"), out var t) ? (CuePointType)t : CuePointType.Unknown,
         Name = (string?)element.Attribute("NAME"),
-        Hotcue = (int)element.Attribute("HOTCUE"),
+        Hotcue = (int)element.Attribute("HOTCUE")!,
         Length = (double?)element.Attribute("LEN"),
         Order = (int?)element.Attribute("DISPL_ORDER"),
         Repeats = (int?)element.Attribute("REPEATS")

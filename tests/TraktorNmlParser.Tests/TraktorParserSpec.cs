@@ -13,6 +13,6 @@ public class TraktorParserSpec
         var collection = await parser.LoadAsync(stream);
 
         collection.Tracks.ShouldNotBeEmpty();
-        collection.Playlists.ShouldNotBeEmpty();
+        collection.Folders.ShouldNotBeEmpty();
     }
 }
