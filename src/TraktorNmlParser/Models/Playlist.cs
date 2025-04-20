@@ -9,6 +9,7 @@ public class Playlist
         var name = (string?)node.Attribute("NAME")!;
         var playlistNode = node.Element("PLAYLIST")!;
         var entries = (int)playlistNode.Attribute("ENTRIES")!;
+        var uuid = (string)playlistNode.Attribute("UUID")!;
 
         var keys = playlistNode.Elements("ENTRY")
             .Select(e => e.Element("PRIMARYKEY")?.Attribute("KEY")?.Value)
@@ -21,10 +22,11 @@ public class Playlist
             .Select(k => trackMap[k])
             .ToList();
 
-        return new Playlist { Name = name, Entries = entries, Tracks = matchedTracks };
+        return new Playlist { Uuid = uuid!, Name = name!, Entries = entries, Tracks = matchedTracks };
     }
 
-    public string? Name { get; set; }
+    public required string Uuid { get; set; }
+    public required string Name { get; set; }
     public int Entries { get; set; }
     public List<Track> Tracks { get; set; } = [];
 }

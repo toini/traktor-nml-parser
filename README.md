@@ -23,7 +23,7 @@ To publish a new version to GitHub Packages:
 
 ```powershell
 $token = "your_github_pat_here"
-$version = "0.0.9"
+$version = "0.0.10"
 
 git tag "v$version"
 git push origin "v$version"
