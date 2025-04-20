@@ -23,7 +23,7 @@ To publish a new version to GitHub Packages:
 
 ```powershell
 $token = "your_github_pat_here"
-$version = "0.0.7"
+$version = "0.0.8"
 
 git tag "v$version"
 git push origin "v$version"
@@ -61,17 +61,17 @@ async Task Main(string[] args)
 		HttpClientInitializer = credential,
 		ApplicationName = "GoogleDriveDownloadUrls",
 	});
-	
+
 	const string fileName = "COLLECTION.nml";
 	var collectionFileId = await Util.CacheAsync(async () => await GetCollectionFileId(fileName), fileName);
 	using var contentStream = GetFileContent(collectionFileId);
 
 	var parser = new NmlParser();
 	var collection = await parser.LoadAsync(contentStream);
-	
+
 	const string playlistName = "Z17-2024 Psytech.rec";
 	const int targetBpm = 133;
-	
+
 	//var playlistName = "2025-04-19 Golgatan farssi";
 	var tracks = collection.Playlists.FirstOrDefault(p => p.Name == playlistName).Tracks;
 
@@ -134,7 +134,7 @@ public class Row
 	public string Start { get; set; }
 	public string Stop { get; set; }
 	public string MinDurationOrig { get; set; }
-	public string MinDurationScaled { get; set; }	
+	public string MinDurationScaled { get; set; }
 	public string LoopDuration { get; set; }
 	public string MinCumulativeOrig { get; set; }
 	public string MinCumulativeScaled { get; set; }
