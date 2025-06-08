@@ -13,14 +13,23 @@ public class Collection
             .Where(t => !string.IsNullOrWhiteSpace(t.Path) && !t.Path.Contains("silent", StringComparison.OrdinalIgnoreCase))
             .ToDictionary(t => t.Path!) ?? new Dictionary<string, Track>();
 
-        var folders = nmlRoot.Element("PLAYLISTS")!
-            .Elements("NODE")
+        var rootFolder = nmlRoot
+            .Element("PLAYLISTS")!
+            .Elements("NODE").Single(f => f.Attribute("TYPE")?.Value == "FOLDER" && f.Attribute("NAME")?.Value == "$ROOT");
+
+        var folders = new List<Folder>
+        {
+            Folder.FromXml(rootFolder, trackMap)
+        };
+
+        var subFolders = rootFolder
             .Elements("SUBNODES")
             .Elements("NODE")
             .Where(n => string.Equals((string?)n.Attribute("TYPE"), "FOLDER", StringComparison.OrdinalIgnoreCase))
             .Select(n => Folder.FromXml(n, trackMap))
             .ToList();
 
+        folders.AddRange(subFolders);
         return new Collection
         {
             Tracks = trackMap.Values.ToList(),

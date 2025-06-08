@@ -5,24 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "C#: TraktorNmlParser Debug",
+            "name": "Debug .NET Test",
             "type": "coreclr",
             "request": "launch",
-            "program": "${workspaceFolder}/src/TraktorNmlParser/bin/Debug/net9.0/TraktorNmlParser.dll",
-            "args": [],
+            "program": "dotnet",
+            "args": [ "test"],
             "cwd": "${workspaceFolder}",
-            "stopAtEntry": false,
-            "console": "internalConsole"
-        },
-        {
-            "name": "C#: TraktorNmlParser.Tests Debug",
-            "type": "coreclr",
-            "request": "launch",
-            "program": "${workspaceFolder}/tests/TraktorNmlParser.Tests/bin/Debug/net9.0/TraktorNmlParser.Tests.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}",
-            "stopAtEntry": false,
-            "console": "internalConsole"
-        },
+            "console": "internalConsole",
+            "stopAtEntry": false
+        }
     ]
 }
