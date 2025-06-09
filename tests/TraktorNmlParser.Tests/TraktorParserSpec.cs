@@ -12,8 +12,8 @@ public class TraktorParserSpec
 
         var collection = await parser.LoadAsync(stream);
 
-        collection.Tracks.ShouldNotBeEmpty();
-        collection.Folders.ShouldNotBeEmpty();
+        collection.Tracks.Count().ShouldBe(1517);
+        collection.Folders.Count().ShouldBe(10);
     }
 
     [Fact]
@@ -24,7 +24,7 @@ public class TraktorParserSpec
 
         var collection = parser.Load(content);
 
-        collection.Tracks.ShouldNotBeEmpty();
-        collection.Folders.ShouldNotBeEmpty();
+        collection.Tracks.Count().ShouldBe(1517);
+        collection.Folders.Count().ShouldBe(10);
     }
 }
