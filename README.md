@@ -31,7 +31,7 @@ git push origin "v$version"
 dotnet clean
 dotnet pack -c Release /p:Version=$version
 
-$packagePath = "src/TraktorNmlParser/bin/Release/TraktorNmlParser.$version.nupkg"
+export $packagePath="src/TraktorNmlParser/bin/Release/TraktorNmlParser.$version.nupkg"
 dotnet nuget push $packagePath --source "github" --api-key $token
 ```
 
